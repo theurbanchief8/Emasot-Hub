@@ -1,6 +1,5 @@
 ﻿"use client";
 import { useState, useEffect } from "react";
-import { supabase } from "@/lib/supabaseClient";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import Link from "next/link";
@@ -10,22 +9,10 @@ export default function ExplorePage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchProjects();
-  }, []);
-
-  async function fetchProjects() {
-    const { data, error } = await supabase
-      .from("projects")
-      .select("*")
-      .order("created_at", { ascending: false });
-
-    if (error) {
-      console.error("Error:", error);
-    } else {
-      setProjects(data || []);
-    }
+    const savedProjects = JSON.parse(localStorage.getItem("seller_projects") || "[]");
+    setProjects(savedProjects);
     setLoading(false);
-  }
+  }, []);
 
   if (loading) {
     return (
@@ -50,7 +37,7 @@ export default function ExplorePage() {
           </div>
         ) : (
           <div className="grid md:grid-cols-3 gap-6">
-            {projects.map((project) => (
+            {projects.map((project: any) => (
               <div key={project.id} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition">
                 <h3 className="text-xl font-bold text-blue-900 mb-2">{project.title}</h3>
                 <p className="text-gray-600 text-sm mb-2">By {project.author_name}</p>
