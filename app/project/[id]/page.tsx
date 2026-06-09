@@ -6,15 +6,26 @@ import Footer from "@/components/Footer/Footer";
 import Link from "next/link";
 import { FaDownload, FaShoppingCart, FaYoutube, FaUser } from "react-icons/fa";
 
+interface Project {
+  id: number;
+  title: string;
+  author_name: string;
+  category: string;
+  price: number;
+  abstract: string;
+  youtubeLink?: string;
+  createdAt: string;
+}
+
 export default function ProjectPage() {
   const params = useParams();
-  const [project, setProject] = useState(null);
+  const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const projects = JSON.parse(localStorage.getItem("seller_projects") || "[]");
-    const found = projects.find((p: any) => p.id === parseInt(params.id as string));
-    setProject(found);
+    const found = projects.find((p: Project) => p.id === parseInt(params.id as string));
+    setProject(found || null);
     setLoading(false);
   }, [params.id]);
 
