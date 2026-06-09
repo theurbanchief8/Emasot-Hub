@@ -1,8 +1,8 @@
-﻿"use client";
+"use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { FaEnvelope, FaFilePdf, FaDownload, FaEdit, FaSignOutAlt, FaHeart, FaCheckCircle, FaUsers, FaVideo, FaChartLine, FaTags } from "react-icons/fa";
 
 export default function ProfilePage() {
@@ -97,7 +97,7 @@ export default function ProfilePage() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-white rounded-2xl shadow-lg p-6"><h2 className="text-2xl font-bold text-blue-900 mb-4 flex items-center gap-2"><FaTags /> Problem-Solved Portfolio</h2>{projects.map((p: any) => (<div key={p.id} className="border-b py-3"><h3 className="font-bold">{p.title}</h3><p className="text-sm text-gray-600">Solution: {p.solution || "AI-powered agricultural prediction model"}</p><span className="text-xs text-green-600">✓ Problem Solved</span></div>))}</div>
+          <div className="bg-white rounded-2xl shadow-lg p-6"><h2 className="text-2xl font-bold text-blue-900 mb-4 flex items-center gap-2"><FaTags /> Problem-Solved Portfolio</h2>{projects.map((p: any) => (<div key={p.id} className="border-b py-3"><h3 className="font-bold">{p.title}</h3><p className="text-sm text-gray-600">Solution: {p.solution || "AI-powered agricultural prediction model"}</p><span className="text-xs text-green-600">? Problem Solved</span></div>))}</div>
           <div className="bg-white rounded-2xl shadow-lg p-6"><h2 className="text-2xl font-bold text-blue-900 mb-4 flex items-center gap-2"><FaEnvelope /> Contact Researcher</h2><textarea rows={4} className="w-full p-3 border rounded-lg mb-3" placeholder="Message about collaboration, investment, or job opportunity..." value={messageText} onChange={(e) => setMessageText(e.target.value)} /><button onClick={sendMessage} className="bg-amber-500 text-white w-full py-3 rounded-lg">Send Message</button></div>
         </div>
       </div>

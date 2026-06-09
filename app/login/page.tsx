@@ -1,8 +1,8 @@
-﻿"use client";
+"use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { FaEnvelope, FaLock, FaUser, FaGraduationCap, FaBriefcase, FaArrowRight, FaEye, FaEyeSlash, FaLightbulb, FaChalkboardTeacher, FaUserFriends } from "react-icons/fa";
 
 export default function LoginPage() {
@@ -130,7 +130,7 @@ export default function LoginPage() {
           </div>
 
           <div className="mt-8 text-center text-sm text-gray-600">
-            <p>✨ Everyone can share ideas | 📄 Publish research | 🤝 Employers discover talent | 💰 Earn from downloads</p>
+            <p>? Everyone can share ideas | ?? Publish research | ?? Employers discover talent | ?? Earn from downloads</p>
           </div>
         </div>
       </div>

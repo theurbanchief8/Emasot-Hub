@@ -1,7 +1,7 @@
-﻿"use client";
+"use client";
 import { useState } from "react";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { FaBriefcase, FaTrophy, FaClock, FaMoneyBillWave, FaUsers, FaArrowRight } from "react-icons/fa";
 
 export default function Challenges() {

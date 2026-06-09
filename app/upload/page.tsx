@@ -1,8 +1,8 @@
-﻿"use client";
+"use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function UploadPage() {
   const router = useRouter();
@@ -129,8 +129,8 @@ export default function UploadPage() {
               {aiScore !== null && (
                 <div className="mt-2 p-2 rounded text-sm" style={{ backgroundColor: aiScore > 70 ? '#fee2e2' : aiScore > 40 ? '#fed7aa' : '#dcfce7' }}>
                   <strong>AI Content Score: {aiScore}%</strong>
-                  {aiScore > 70 && <p>⚠️ High AI content detected. Free publishing recommended.</p>}
-                  {aiScore < 30 && <p>✅ Excellent! Original content detected.</p>}
+                  {aiScore > 70 && <p>?? High AI content detected. Free publishing recommended.</p>}
+                  {aiScore < 30 && <p>? Excellent! Original content detected.</p>}
                 </div>
               )}
             </div>
@@ -146,7 +146,7 @@ export default function UploadPage() {
                 <option value="">Select price</option>
                 <option>Free</option><option>20</option><option>50</option><option>100</option><option>200</option><option>500</option>
               </select>
-              {aiScore > 70 && <p className="text-xs text-red-500 mt-1">⚠️ High AI content detected. Consider making this free.</p>}
+              {aiScore > 70 && <p className="text-xs text-red-500 mt-1">?? High AI content detected. Consider making this free.</p>}
             </div>
 
             <button type="submit" disabled={uploading} className="w-full bg-amber-500 text-white font-bold py-3 rounded-lg hover:bg-amber-600 transition">

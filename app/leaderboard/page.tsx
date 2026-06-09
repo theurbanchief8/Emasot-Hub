@@ -1,7 +1,7 @@
-﻿"use client";
+"use client";
 import { useState, useEffect } from "react";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { FaTrophy, FaStar, FaDownload, FaEye, FaCertificate, FaChartLine } from "react-icons/fa";
 
 export default function Leaderboard() {
@@ -48,7 +48,7 @@ export default function Leaderboard() {
         <div className="flex justify-center gap-4 mb-8">
           {["earnings", "downloads", "impactScore"].map((tab) => (
             <button key={tab} onClick={() => setActiveTab(tab)} className={`px-6 py-2 rounded-full font-semibold transition ${activeTab === tab ? "bg-blue-900 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"}`}>
-              {tab === "earnings" ? "💰 Top Earners" : tab === "downloads" ? "📥 Most Downloaded" : "📊 Impact Score"}
+              {tab === "earnings" ? "?? Top Earners" : tab === "downloads" ? "?? Most Downloaded" : "?? Impact Score"}
             </button>
           ))}
         </div>
@@ -80,12 +80,12 @@ export default function Leaderboard() {
 
         {/* Achievements Section */}
         <div className="mt-12 bg-gradient-to-r from-blue-50 to-amber-50 rounded-2xl p-8">
-          <h3 className="text-2xl font-bold text-blue-900 mb-6 text-center">🏆 Achievement Badges</h3>
+          <h3 className="text-2xl font-bold text-blue-900 mb-6 text-center">?? Achievement Badges</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="text-center p-4"><div className="text-4xl mb-2">🏅</div><p className="font-semibold">Top Researcher</p><p className="text-xs text-gray-600">Top 10 overall</p></div>
-            <div className="text-center p-4"><div className="text-4xl mb-2">📚</div><p className="font-semibold">Prolific Author</p><p className="text-xs text-gray-600">10+ publications</p></div>
-            <div className="text-center p-4"><div className="text-4xl mb-2">💡</div><p className="font-semibold">Innovation Star</p><p className="text-xs text-gray-600">High impact score</p></div>
-            <div className="text-center p-4"><div className="text-4xl mb-2">🤝</div><p className="font-semibold">Collaborator</p><p className="text-xs text-gray-600">Top collaborator</p></div>
+            <div className="text-center p-4"><div className="text-4xl mb-2">??</div><p className="font-semibold">Top Researcher</p><p className="text-xs text-gray-600">Top 10 overall</p></div>
+            <div className="text-center p-4"><div className="text-4xl mb-2">??</div><p className="font-semibold">Prolific Author</p><p className="text-xs text-gray-600">10+ publications</p></div>
+            <div className="text-center p-4"><div className="text-4xl mb-2">??</div><p className="font-semibold">Innovation Star</p><p className="text-xs text-gray-600">High impact score</p></div>
+            <div className="text-center p-4"><div className="text-4xl mb-2">??</div><p className="font-semibold">Collaborator</p><p className="text-xs text-gray-600">Top collaborator</p></div>
           </div>
         </div>
       </div>
