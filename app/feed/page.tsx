@@ -4,15 +4,37 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import { FaHeart, FaComment, FaShare, FaImage, FaVideo, FaFileAlt, FaHashtag, FaUserPlus } from "react-icons/fa";
 
+interface Comment {
+  id: number;
+  author: string;
+  text: string;
+  timestamp: string;
+}
+
+interface Post {
+  id: number;
+  content: string;
+  author: string;
+  userType: string;
+  type: string;
+  media: string | null;
+  likes: number;
+  comments: Comment[];
+  shares: number;
+  timestamp: string;
+  likedBy: string[];
+  relevanceScore?: number;
+}
+
 export default function FeedPage() {
-  const [posts, setPosts] = useState([]);
-  const [filteredPosts, setFilteredPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
   const [newPost, setNewPost] = useState("");
   const [postType, setPostType] = useState("text");
   const [mediaUrl, setMediaUrl] = useState("");
-  const [userInterests, setUserInterests] = useState([]);
-  const [commentText, setCommentText] = useState({});
-  const [showingCommentFor, setShowingCommentFor] = useState(null);
+  const [userInterests, setUserInterests] = useState<string[]>([]);
+  const [commentText, setCommentText] = useState<Record<number, string>>({});
+  const [showingCommentFor, setShowingCommentFor] = useState<number | null>(null);
 
   useEffect(() => {
     loadPosts();
@@ -32,7 +54,7 @@ export default function FeedPage() {
     setUserInterests(interests);
   };
 
-  const applyAlgorithm = (allPosts: any[]) => {
+  const applyAlgorithm = (allPosts: Post[]) => {
     const currentUser = localStorage.getItem("user_email");
     const users = JSON.parse(localStorage.getItem("users") || "[]");
     const currentUserData = users.find((u: any) => u.email === currentUser);
@@ -56,7 +78,7 @@ export default function FeedPage() {
       return { ...post, relevanceScore: score };
     });
     
-    scoredPosts.sort((a, b) => b.relevanceScore - a.relevanceScore);
+    scoredPosts.sort((a, b) => (b.relevanceScore || 0) - (a.relevanceScore || 0));
     setFilteredPosts(scoredPosts);
   };
 
@@ -66,7 +88,7 @@ export default function FeedPage() {
     const currentUser = localStorage.getItem("user_name") || "Anonymous";
     const userType = localStorage.getItem("user_type") || "sharer";
     
-    const post = {
+    const post: Post = {
       id: Date.now(),
       content: newPost,
       author: currentUser,
@@ -92,10 +114,10 @@ export default function FeedPage() {
     const currentUser = localStorage.getItem("user_email");
     const updated = posts.map(post => {
       if (post.id === postId) {
-        if (post.likedBy?.includes(currentUser)) {
+        if (post.likedBy?.includes(currentUser || "")) {
           return { ...post, likes: post.likes - 1, likedBy: post.likedBy.filter((u: string) => u !== currentUser) };
         } else {
-          return { ...post, likes: post.likes + 1, likedBy: [...(post.likedBy || []), currentUser] };
+          return { ...post, likes: post.likes + 1, likedBy: [...(post.likedBy || []), currentUser || ""] };
         }
       }
       return post;
@@ -110,9 +132,9 @@ export default function FeedPage() {
     
     const updated = posts.map(post => {
       if (post.id === postId) {
-        const newComment = {
+        const newComment: Comment = {
           id: Date.now(),
-          author: localStorage.getItem("user_name"),
+          author: localStorage.getItem("user_name") || "Anonymous",
           text: commentText[postId],
           timestamp: new Date().toISOString()
         };
@@ -130,7 +152,7 @@ export default function FeedPage() {
   const getTrendingHashtags = () => {
     const allText = posts.map(p => p.content).join(" ");
     const hashtags = allText.match(/#\w+/g) || [];
-    const counts = {};
+    const counts: Record<string, number> = {};
     hashtags.forEach(tag => { counts[tag] = (counts[tag] || 0) + 1; });
     return Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 5);
   };
@@ -167,7 +189,7 @@ export default function FeedPage() {
                 <p className="text-gray-500">No posts yet. Be the first to share!</p>
               </div>
             ) : (
-              filteredPosts.map((post: any) => (
+              filteredPosts.map((post) => (
                 <div key={post.id} className="bg-white rounded-2xl shadow-lg p-6 mb-6 hover:shadow-xl transition">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-900 to-amber-500 rounded-full flex items-center justify-center text-white font-bold">
@@ -188,7 +210,7 @@ export default function FeedPage() {
                   )}
                   <div className="flex gap-6 pt-4 border-t">
                     <button onClick={() => handleLike(post.id)} className="flex items-center gap-2 text-gray-600 hover:text-red-500 transition">
-                      <FaHeart className={post.likedBy?.includes(localStorage.getItem("user_email")) ? "text-red-500" : ""} /> {post.likes}
+                      <FaHeart className={post.likedBy?.includes(localStorage.getItem("user_email") || "") ? "text-red-500" : ""} /> {post.likes}
                     </button>
                     <button onClick={() => setShowingCommentFor(showingCommentFor === post.id ? null : post.id)} className="flex items-center gap-2 text-gray-600 hover:text-blue-500 transition">
                       <FaComment /> {post.comments?.length || 0}
@@ -210,7 +232,7 @@ export default function FeedPage() {
                         />
                         <button onClick={() => handleComment(post.id)} className="bg-amber-500 text-white px-4 py-2 rounded">Post</button>
                       </div>
-                      {post.comments?.map((comment: any) => (
+                      {post.comments?.map((comment) => (
                         <div key={comment.id} className="mt-3 p-3 bg-gray-50 rounded">
                           <p className="font-semibold text-sm">{comment.author}</p>
                           <p className="text-sm">{comment.text}</p>
@@ -243,7 +265,7 @@ export default function FeedPage() {
                   Based on your interests: {userInterests.join(", ") || "None yet. Update your profile!"}
                 </p>
                 <p className="text-xs text-gray-400 mt-2">
-                  Tip: Add interests in your profile for personalized feed
+                  💡 Tip: Add interests in your profile for personalized feed
                 </p>
               </div>
             </div>
