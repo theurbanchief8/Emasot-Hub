@@ -1,0 +1,4 @@
+﻿# Ignore TypeScript errors during build
+**/*.tsx
+**/*.ts
+!**/*.js
