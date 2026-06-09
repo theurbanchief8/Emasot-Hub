@@ -1,7 +1,7 @@
-﻿"use client";
+"use client";
 import { useState, useEffect } from "react";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import Link from "next/link";
 import { FaSearch, FaShoppingCart, FaDownload } from "react-icons/fa";
 

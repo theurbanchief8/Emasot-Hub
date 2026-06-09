@@ -1,7 +1,7 @@
-﻿"use client";
+"use client";
 import { useState, useEffect } from "react";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import Link from "next/link";
 import { FaSearch, FaFilter, FaShoppingCart, FaDownload, FaEye, FaStar, FaCertificate, FaVideo } from "react-icons/fa";
 
@@ -89,13 +89,13 @@ export default function ResearchMarket() {
                   <p className="text-gray-600 text-sm mb-2">By {project.author_name}</p>
                   <div className="flex gap-3 mb-4 text-sm">
                     {project.hasVideo && <span className="flex items-center gap-1 text-amber-500"><FaVideo /> Video</span>}
-                    <span className="flex items-center gap-1">⭐ {project.verificationScore}%</span>
-                    <span className="flex items-center gap-1">📝 {project.peerReviews} reviews</span>
-                    <span className="flex items-center gap-1">📖 {project.citations} citations</span>
+                    <span className="flex items-center gap-1">? {project.verificationScore}%</span>
+                    <span className="flex items-center gap-1">?? {project.peerReviews} reviews</span>
+                    <span className="flex items-center gap-1">?? {project.citations} citations</span>
                   </div>
                   <div className="flex justify-between items-center">
                     {project.price === 0 ? <span className="text-2xl font-bold text-green-600">FREE</span> : <span className="text-2xl font-bold text-amber-600">KES {project.price}</span>}
-                    <Link href={`/project/${project.id}`} className="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition">View →</Link>
+                    <Link href={`/project/${project.id}`} className="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition">View ?</Link>
                   </div>
                 </div>
               </div>

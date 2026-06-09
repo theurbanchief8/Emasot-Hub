@@ -1,8 +1,8 @@
-﻿"use client";
+"use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import Link from "next/link";
 import { FaFilePdf, FaDownload, FaWallet, FaChartLine, FaPlus, FaEye, FaTrash, FaSignOutAlt } from "react-icons/fa";
 

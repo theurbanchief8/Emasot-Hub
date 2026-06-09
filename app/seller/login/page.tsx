@@ -1,8 +1,8 @@
-ï»¿"use client";
+"use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import Link from "next/link";
 import { FaStore, FaEnvelope, FaLock, FaUser, FaPhone, FaArrowRight } from "react-icons/fa";
 
@@ -88,7 +88,7 @@ export default function SellerLogin() {
                   className="w-full p-3 border rounded-lg focus:outline-none focus:border-amber-500"
                   value={formData.password}
                   onChange={(e) => setFormData({...formData, password: e.target.value})}
-                  placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
+                  placeholder="••••••••"
                 />
               </div>
 
@@ -155,13 +155,13 @@ export default function SellerLogin() {
 
             {/* Seller Benefits */}
             <div className="mt-8 p-4 bg-blue-50 rounded-lg">
-              <p className="text-sm font-bold text-blue-900 mb-2">âœ¨ Seller Benefits:</p>
+              <p className="text-sm font-bold text-blue-900 mb-2">? Seller Benefits:</p>
               <ul className="text-xs text-gray-600 space-y-1">
-                <li>ğŸ“„ Publish unlimited research projects</li>
-                <li>ğŸ’° Earn 70% of every download</li>
-                <li>ğŸ“Š Track earnings & analytics</li>
-                <li>ğŸ† Get featured on leaderboard</li>
-                <li>ğŸ’¸ Withdraw directly to M-Pesa</li>
+                <li>?? Publish unlimited research projects</li>
+                <li>?? Earn 70% of every download</li>
+                <li>?? Track earnings & analytics</li>
+                <li>?? Get featured on leaderboard</li>
+                <li>?? Withdraw directly to M-Pesa</li>
               </ul>
             </div>
           </div>
