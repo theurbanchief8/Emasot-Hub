@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
 import { FaEnvelope, FaLock, FaUser, FaGraduationCap, FaBriefcase, FaArrowRight, FaEye, FaEyeSlash, FaLightbulb, FaChalkboardTeacher, FaUserFriends } from "react-icons/fa";
 
 export default function LoginPage() {

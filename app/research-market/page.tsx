@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
 import Link from "next/link";
 import { FaSearch, FaFilter, FaShoppingCart, FaDownload, FaEye, FaStar, FaCertificate, FaVideo } from "react-icons/fa";
 
