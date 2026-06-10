@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 import Link from "next/link";
-import { FaSearch, FaFilter, FaShoppingCart, FaDownload, FaEye, FaStar, FaCertificate, FaVideo } from "react-icons/fa";
+import { FaSearch, FaFilter, FaShoppingCart, FaDownload, FaEye, FaStar, FaCertificate, FaVideo, FaShoppingBag } from "react-icons/fa";
 
 export default function ResearchMarket() {
   const [projects, setProjects] = useState([]);
@@ -14,12 +14,11 @@ export default function ResearchMarket() {
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("seller_projects") || "[]");
-    // Add verification scores
     const withScores = saved.map((p: any) => ({
       ...p,
       verificationScore: Math.floor(Math.random() * 100),
       hasVideo: !!p.youtubeLink,
-      hasPeerReviews: Math.floor(Math.random() * 10),
+      peerReviews: Math.floor(Math.random() * 10),
       citations: Math.floor(Math.random() * 50)
     }));
     setProjects(withScores);
@@ -28,7 +27,7 @@ export default function ResearchMarket() {
   const getVerificationBadge = (score: number) => {
     if (score >= 80) return { color: "bg-green-500", text: "Gold Verified", icon: <FaCertificate /> };
     if (score >= 60) return { color: "bg-blue-500", text: "Silver Verified", icon: <FaStar /> };
-    return { color: "bg-gray-400", text: "Bronze", icon: null };
+    return { color: "bg-gray-400", text: "Bronze Verified", icon: null };
   };
 
   const filtered = projects.filter(p => {
@@ -58,14 +57,20 @@ export default function ResearchMarket() {
           <div className="grid md:grid-cols-4 gap-4">
             <input type="text" placeholder="Search research..." className="p-3 border rounded-lg" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
             <select className="p-3 border rounded-lg" value={priceFilter} onChange={(e) => setPriceFilter(e.target.value)}>
-              <option value="all">All Prices</option><option value="free">Free Only</option><option value="paid">Paid Only</option>
+              <option value="all">All Prices</option>
+              <option value="free">Free Only</option>
+              <option value="paid">Paid Only</option>
             </select>
             <select className="p-3 border rounded-lg" value={verificationFilter} onChange={(e) => setVerificationFilter(e.target.value)}>
-              <option value="all">All Verification</option><option value="gold">Gold Verified</option><option value="silver">Silver Verified</option>
+              <option value="all">All Verification</option>
+              <option value="gold">Gold Verified</option>
+              <option value="silver">Silver Verified</option>
             </select>
             <select className="p-3 border rounded-lg" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-              <option value="newest">Newest First</option><option value="verified">Highest Verified</option>
-              <option value="price-low">Price: Low to High</option><option value="price-high">Price: High to Low</option>
+              <option value="newest">Newest First</option>
+              <option value="verified">Highest Verified</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
             </select>
           </div>
         </div>
@@ -89,13 +94,15 @@ export default function ResearchMarket() {
                   <p className="text-gray-600 text-sm mb-2">By {project.author_name}</p>
                   <div className="flex gap-3 mb-4 text-sm">
                     {project.hasVideo && <span className="flex items-center gap-1 text-amber-500"><FaVideo /> Video</span>}
-                    <span className="flex items-center gap-1">? {project.verificationScore}%</span>
-                    <span className="flex items-center gap-1">?? {project.peerReviews} reviews</span>
-                    <span className="flex items-center gap-1">?? {project.citations} citations</span>
+                    <span className="flex items-center gap-1">⭐ {project.verificationScore}%</span>
+                    <span className="flex items-center gap-1">📝 {project.peerReviews} reviews</span>
+                    <span className="flex items-center gap-1">📖 {project.citations} citations</span>
                   </div>
                   <div className="flex justify-between items-center">
                     {project.price === 0 ? <span className="text-2xl font-bold text-green-600">FREE</span> : <span className="text-2xl font-bold text-amber-600">KES {project.price}</span>}
-                    <Link href={`/project/${project.id}`} className="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition">View ?</Link>
+                    <Link href={`/project/${project.id}`} className="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition">
+                      View →
+                    </Link>
                   </div>
                 </div>
               </div>
