@@ -1,8 +1,8 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 "use client";
 import { useState, useEffect } from "react";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 import { FaHeart, FaComment, FaShare, FaImage, FaVideo, FaFileAlt, FaHashtag, FaUserPlus } from "react-icons/fa";
 
 interface Comment {
@@ -198,7 +198,7 @@ export default function FeedPage() {
                     </div>
                     <div>
                       <p className="font-bold">{post.author}</p>
-                      <p className="text-xs text-gray-500">{post.userType} � {new Date(post.timestamp).toLocaleDateString()}</p>
+                      <p className="text-xs text-gray-500">{post.userType} • {new Date(post.timestamp).toLocaleDateString()}</p>
                     </div>
                   </div>
                   <p className="text-gray-800 mb-4">{post.content}</p>
@@ -266,7 +266,7 @@ export default function FeedPage() {
                   Based on your interests: {userInterests.join(", ") || "None yet. Update your profile!"}
                 </p>
                 <p className="text-xs text-gray-400 mt-2">
-                  ?? Tip: Add interests in your profile for personalized feed
+                  💡 Tip: Add interests in your profile for personalized feed
                 </p>
               </div>
             </div>

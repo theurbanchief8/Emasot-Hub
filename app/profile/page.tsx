@@ -1,8 +1,8 @@
-"use client";
+﻿"use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 import { FaEnvelope, FaFilePdf, FaDownload, FaEdit, FaSignOutAlt, FaHeart, FaCheckCircle, FaUsers, FaVideo, FaChartLine, FaTags } from "react-icons/fa";
 
 export default function ProfilePage() {
@@ -43,7 +43,7 @@ export default function ProfilePage() {
   const sendMessage = () => {
     if (!messageText.trim()) return;
     const messages = JSON.parse(localStorage.getItem("messages") || "[]");
-    messages.push({ id: Date.now(), from: localStorage.getItem("user_email"), to: user.email, content: messageText, subject: `Message from ${localStorage.getItem("user_name")}`, read: false, timestamp: new Date().toISOString() });
+    messages.push({ id: Date.now(), from: localStorage.getItem("user_email"), to: user.email, content: messageText, subject: "Message", read: false, timestamp: new Date().toISOString() });
     localStorage.setItem("messages", JSON.stringify(messages));
     setMessageText("");
     alert("Message sent!");
@@ -51,13 +51,10 @@ export default function ProfilePage() {
 
   if (!user) return null;
 
-  const problemsSolved = projects.filter((p: any) => p.hasSolution).length || 3;
-
   return (
     <main>
       <Navbar />
       <div className="container mx-auto px-6 py-20">
-        {/* Profile Header */}
         <div className="bg-gradient-to-r from-blue-900 to-blue-700 rounded-2xl p-8 text-white mb-8">
           <div className="flex justify-between items-start flex-wrap gap-4">
             <div>
@@ -67,7 +64,7 @@ export default function ProfilePage() {
                   <h1 className="text-3xl font-bold">{user.name}</h1>
                   <p className="text-blue-200 mt-1">{user.role} at {user.institution}</p>
                   <div className="flex gap-3 mt-3">
-                    <span className="bg-green-500 px-3 py-1 rounded-full text-xs flex items-center gap-1"><FaCheckCircle /> {problemsSolved} Problems Solved</span>
+                    <span className="bg-green-500 px-3 py-1 rounded-full text-xs flex items-center gap-1"><FaCheckCircle /> {projects.length} Problems Solved</span>
                     <span className={`px-3 py-1 rounded-full text-xs flex items-center gap-1 ${collaborationStatus === "open" ? "bg-green-500" : "bg-yellow-500"}`}><FaUsers /> {collaborationStatus === "open" ? "Open to Collaborate" : "Busy"}</span>
                   </div>
                   <p className="text-sm text-blue-200 mt-4 max-w-2xl">{user.bio}</p>
@@ -77,7 +74,8 @@ export default function ProfilePage() {
                   <input type="text" value={editForm.name || ""} onChange={(e) => setEditForm({...editForm, name: e.target.value})} className="p-2 rounded text-black w-full" />
                   <textarea value={editForm.bio || ""} onChange={(e) => setEditForm({...editForm, bio: e.target.value})} className="p-2 rounded text-black w-full" rows={3} />
                   <select value={collaborationStatus} onChange={(e) => setCollaborationStatus(e.target.value)} className="p-2 rounded text-black w-full">
-                    <option value="open">Open to Collaborate</option><option value="busy">Busy - Not Accepting</option>
+                    <option value="open">Open to Collaborate</option>
+                    <option value="busy">Busy - Not Accepting</option>
                   </select>
                 </div>
               )}
@@ -88,16 +86,8 @@ export default function ProfilePage() {
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-4 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-2xl text-center shadow-lg"><FaFilePdf className="text-3xl text-amber-500 mx-auto mb-2" /><p className="text-2xl font-bold">{projects.length}</p><p className="text-gray-600">Papers</p></div>
-          <div className="bg-white p-6 rounded-2xl text-center shadow-lg"><FaDownload className="text-3xl text-amber-500 mx-auto mb-2" /><p className="text-2xl font-bold">{projects.reduce((s, p) => s + (p.downloads || 0), 0)}</p><p className="text-gray-600">Downloads</p></div>
-          <div className="bg-white p-6 rounded-2xl text-center shadow-lg"><FaHeart className="text-3xl text-amber-500 mx-auto mb-2" /><p className="text-2xl font-bold">{Math.floor(Math.random() * 500)}</p><p className="text-gray-600">Reputation</p></div>
-          <div className="bg-white p-6 rounded-2xl text-center shadow-lg"><FaChartLine className="text-3xl text-amber-500 mx-auto mb-2" /><p className="text-2xl font-bold">Top 5%</p><p className="text-gray-600">Global Rank</p></div>
-        </div>
-
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-white rounded-2xl shadow-lg p-6"><h2 className="text-2xl font-bold text-blue-900 mb-4 flex items-center gap-2"><FaTags /> Problem-Solved Portfolio</h2>{projects.map((p: any) => (<div key={p.id} className="border-b py-3"><h3 className="font-bold">{p.title}</h3><p className="text-sm text-gray-600">Solution: {p.solution || "AI-powered agricultural prediction model"}</p><span className="text-xs text-green-600">? Problem Solved</span></div>))}</div>
+          <div className="bg-white rounded-2xl shadow-lg p-6"><h2 className="text-2xl font-bold text-blue-900 mb-4 flex items-center gap-2"><FaTags /> Research Portfolio</h2>{projects.map((p: any) => (<div key={p.id} className="border-b py-3"><h3 className="font-bold">{p.title}</h3><span className="text-xs text-green-600">✓ Problem Solved</span></div>))}</div>
           <div className="bg-white rounded-2xl shadow-lg p-6"><h2 className="text-2xl font-bold text-blue-900 mb-4 flex items-center gap-2"><FaEnvelope /> Contact Researcher</h2><textarea rows={4} className="w-full p-3 border rounded-lg mb-3" placeholder="Message about collaboration, investment, or job opportunity..." value={messageText} onChange={(e) => setMessageText(e.target.value)} /><button onClick={sendMessage} className="bg-amber-500 text-white w-full py-3 rounded-lg">Send Message</button></div>
         </div>
       </div>
