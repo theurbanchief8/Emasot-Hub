@@ -1,16 +1,8 @@
 ﻿/** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Output settings
-  output: 'standalone',
-  
-  // Disable TypeScript build errors
+  allowedDevOrigins: ['192.168.11.99', 'localhost', '*.local'],
   typescript: {
     ignoreBuildErrors: true,
-  },
-  
-  // Disable ESLint during build
-  eslint: {
-    ignoreDuringBuilds: true,
   },
 }
 
