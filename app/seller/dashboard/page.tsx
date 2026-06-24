@@ -1,8 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
 import Link from "next/link";
 import { FaFilePdf, FaDownload, FaWallet, FaChartLine, FaPlus, FaEye, FaTrash, FaSignOutAlt } from "react-icons/fa";
 
@@ -53,7 +51,7 @@ export default function SellerDashboard() {
 
   return (
     <main>
-      <Navbar />
+
       <div className="container mx-auto px-6 py-20">
         {/* Header with Logout */}
         <div className="flex justify-between items-center mb-8">
@@ -166,7 +164,9 @@ export default function SellerDashboard() {
           <p className="text-xs text-gray-500 mt-3">Min withdrawal: KES 500 | 2-3 business days</p>
         </div>
       </div>
-      <Footer />
+
     </main>
   );
 }
+
+

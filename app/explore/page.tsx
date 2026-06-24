@@ -1,7 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
 import Link from "next/link";
 
 export default function ExplorePage() {
@@ -17,16 +15,16 @@ export default function ExplorePage() {
   if (loading) {
     return (
       <main>
-        <Navbar />
+  
         <div className="container mx-auto px-6 py-20 text-center">Loading research...</div>
-        <Footer />
+  
       </main>
     );
   }
 
   return (
     <main>
-      <Navbar />
+
       <div className="container mx-auto px-6 py-20">
         <h1 className="text-4xl font-bold text-center text-blue-900 mb-8">Explore Research</h1>
         
@@ -58,7 +56,8 @@ export default function ExplorePage() {
           </div>
         )}
       </div>
-      <Footer />
+
     </main>
   );
 }
+

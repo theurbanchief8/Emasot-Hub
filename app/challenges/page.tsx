@@ -1,7 +1,5 @@
 "use client";
 import { useState } from "react";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
 import { FaBriefcase, FaTrophy, FaClock, FaMoneyBillWave, FaUsers, FaArrowRight } from "react-icons/fa";
 
 export default function Challenges() {
@@ -50,7 +48,7 @@ export default function Challenges() {
 
   return (
     <main>
-      <Navbar />
+
       <div className="container mx-auto px-6 py-20">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-900 to-amber-500 bg-clip-text text-transparent mb-4">Corporate Challenges</h1>
@@ -90,7 +88,9 @@ export default function Challenges() {
           <button className="bg-white text-blue-900 px-8 py-3 rounded-full font-bold hover:shadow-lg transition">Partner With Us</button>
         </div>
       </div>
-      <Footer />
+
     </main>
   );
 }
+
+

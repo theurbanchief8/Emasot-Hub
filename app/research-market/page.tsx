@@ -1,7 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
 import Link from "next/link";
 import { FaSearch, FaShoppingCart, FaDownload, FaEye, FaStar, FaCertificate, FaVideo, FaBookmark, FaShareAlt } from "react-icons/fa";
 
@@ -73,7 +71,7 @@ export default function ResearchMarket() {
 
   return (
     <main>
-      <Navbar />
+
       <div className="container mx-auto px-6 py-20">
         <h1 className="text-5xl font-bold text-center bg-gradient-to-r from-blue-900 to-amber-500 bg-clip-text text-transparent mb-4">Research Market</h1>
         <p className="text-center text-gray-600 dark:text-gray-400 mb-12">Discover, buy, and sell verified research from Kenyan scholars</p>
@@ -148,7 +146,8 @@ export default function ResearchMarket() {
           })}
         </div>
       </div>
-      <Footer />
+
     </main>
   );
 }
+

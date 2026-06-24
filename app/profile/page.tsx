@@ -1,8 +1,6 @@
-﻿"use client";
+"use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
 import { 
   FaEnvelope, FaFilePdf, FaDownload, FaEdit, FaSignOutAlt, 
   FaHeart, FaCheckCircle, FaUsers, FaVideo, FaChartLine, 
@@ -79,14 +77,13 @@ export default function ProfilePage() {
 
   const skills = ["Research", "Data Analysis", "Academic Writing", "Public Speaking", "Problem Solving"];
   const achievements = [
-    { icon: "🏆", title: "Top Researcher", desc: "Top 10% in Kenya" },
-    { icon: "📚", title: "Prolific Author", desc: "5+ publications" },
-    { icon: "💡", title: "Innovation Star", desc: "Featured research" }
+    { icon: "??", title: "Top Researcher", desc: "Top 10% in Kenya" },
+    { icon: "??", title: "Prolific Author", desc: "5+ publications" },
+    { icon: "??", title: "Innovation Star", desc: "Featured research" }
   ];
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-      <Navbar />
       
       {/* Cover Photo */}
       <div className="relative h-64 md:h-80 bg-gradient-to-r from-blue-900 to-amber-500">
@@ -208,13 +205,13 @@ export default function ProfilePage() {
         <div className="mt-8">
           <div className="flex gap-4 border-b border-gray-200 dark:border-gray-700">
             <button onClick={() => setActiveTab("research")} className={`px-6 py-3 font-semibold transition ${activeTab === "research" ? "text-amber-500 border-b-2 border-amber-500" : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"}`}>
-              📄 Research
+              ?? Research
             </button>
             <button onClick={() => setActiveTab("posts")} className={`px-6 py-3 font-semibold transition ${activeTab === "posts" ? "text-amber-500 border-b-2 border-amber-500" : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"}`}>
-              💬 Activity Feed
+              ?? Activity Feed
             </button>
             <button onClick={() => setActiveTab("achievements")} className={`px-6 py-3 font-semibold transition ${activeTab === "achievements" ? "text-amber-500 border-b-2 border-amber-500" : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"}`}>
-              🏆 Achievements
+              ?? Achievements
             </button>
           </div>
 
@@ -240,8 +237,8 @@ export default function ProfilePage() {
                       <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{project.category}</p>
                       <div className="flex gap-4 text-sm text-gray-500 dark:text-gray-500">
                         <span className="flex items-center gap-1"><FaDownload /> {project.downloads || 0} downloads</span>
-                        <span className="flex items-center gap-1">💰 KES {project.earnings || 0}</span>
-                        {project.aiScore && <span className="flex items-center gap-1">🤖 {project.aiScore}% AI</span>}
+                        <span className="flex items-center gap-1">?? KES {project.earnings || 0}</span>
+                        {project.aiScore && <span className="flex items-center gap-1">?? {project.aiScore}% AI</span>}
                       </div>
                     </div>
                   ))
@@ -334,7 +331,7 @@ export default function ProfilePage() {
           </div>
         </div>
       </div>
-      <Footer />
     </main>
   );
 }
+
