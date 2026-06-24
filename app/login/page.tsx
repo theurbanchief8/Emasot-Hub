@@ -1,8 +1,6 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
 import { FaEnvelope, FaLock, FaUser, FaGraduationCap, FaBriefcase, FaArrowRight, FaEye, FaEyeSlash, FaLightbulb, FaChalkboardTeacher, FaUserFriends } from "react-icons/fa";
 
 export default function LoginPage() {
@@ -58,7 +56,7 @@ export default function LoginPage() {
 
   return (
     <main>
-      <Navbar />
+
       <div className="container mx-auto px-6 py-20">
         <div className="max-w-md mx-auto">
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
@@ -134,7 +132,9 @@ export default function LoginPage() {
           </div>
         </div>
       </div>
-      <Footer />
+
     </main>
   );
 }
+
+

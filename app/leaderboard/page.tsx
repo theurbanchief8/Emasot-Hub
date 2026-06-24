@@ -1,7 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
 import { FaTrophy, FaStar, FaDownload, FaEye, FaCertificate, FaChartLine } from "react-icons/fa";
 
 export default function Leaderboard() {
@@ -37,7 +35,7 @@ export default function Leaderboard() {
 
   return (
     <main>
-      <Navbar />
+
       <div className="container mx-auto px-6 py-20">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-900 to-amber-500 bg-clip-text text-transparent mb-4">Research Leaderboard</h1>
@@ -116,7 +114,8 @@ export default function Leaderboard() {
           </div>
         </div>
       </div>
-      <Footer />
+
     </main>
   );
 }
+

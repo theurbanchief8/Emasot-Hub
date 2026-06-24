@@ -1,8 +1,5 @@
-﻿// @ts-nocheck
-"use client";
+﻿"use client";
 import { useState, useEffect } from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
 import { FaHeart, FaComment, FaShare, FaImage, FaVideo, FaFileAlt, FaHashtag, FaUserPlus, FaBookmark } from "react-icons/fa";
 
 export default function FeedPage() {
@@ -123,7 +120,6 @@ export default function FeedPage() {
 
   return (
     <main>
-      <Navbar />
       <div className="container mx-auto px-6 py-20">
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
@@ -234,14 +230,13 @@ export default function FeedPage() {
                   Based on your interests: {userInterests.join(", ") || "None yet. Update your profile!"}
                 </p>
                 <p className="text-xs text-gray-400 mt-2">
-                  💡 Tip: Add interests in your profile for personalized feed
+                  Tip: Add interests in your profile for personalized feed
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <Footer />
     </main>
   );
 }

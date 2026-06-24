@@ -1,8 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
 import { FaReply, FaTrash } from "react-icons/fa";
 
 export default function MessagesPage() {
@@ -55,7 +53,7 @@ export default function MessagesPage() {
 
   return (
     <main>
-      <Navbar />
+
       <div className="container mx-auto px-6 py-20">
         <h1 className="text-4xl font-bold text-blue-900 mb-8">Messages</h1>
         
@@ -101,7 +99,9 @@ export default function MessagesPage() {
           </div>
         )}
       </div>
-      <Footer />
+
     </main>
   );
 }
+
+

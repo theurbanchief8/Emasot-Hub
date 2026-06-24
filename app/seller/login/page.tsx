@@ -1,8 +1,6 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
 import Link from "next/link";
 import { FaStore, FaEnvelope, FaLock, FaUser, FaPhone, FaArrowRight } from "react-icons/fa";
 
@@ -47,7 +45,7 @@ export default function SellerLogin() {
 
   return (
     <main>
-      <Navbar />
+
       <div className="container mx-auto px-6 py-20">
         <div className="max-w-md mx-auto">
           {/* Header */}
@@ -167,7 +165,9 @@ export default function SellerLogin() {
           </div>
         </div>
       </div>
-      <Footer />
+
     </main>
   );
 }
+
+

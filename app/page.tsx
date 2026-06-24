@@ -1,12 +1,10 @@
-﻿import Navbar from "../components/Navbar/Navbar";
-import Footer from "../components/Footer/Footer";
 import Link from "next/link";
 import { FaStore, FaShoppingCart, FaArrowRight } from "react-icons/fa";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50">
-      <Navbar />
+
 
       {/* Hero Section */}
       <section className="relative h-[85vh] bg-gradient-to-br from-blue-900 to-blue-700 overflow-hidden">
@@ -63,17 +61,17 @@ export default function Home() {
           <h2 className="text-4xl font-bold text-center text-blue-900 mb-12">What Makes EmasotHub Unique?</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-              <div className="text-5xl mb-4">📚</div>
+              <div className="text-5xl mb-4">??</div>
               <h3 className="text-xl font-bold text-blue-900 mb-3">Publish & Earn</h3>
               <p className="text-gray-600">Upload your research, set your price, and earn 70% of every download.</p>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-              <div className="text-5xl mb-4">💬</div>
+              <div className="text-5xl mb-4">??</div>
               <h3 className="text-xl font-bold text-blue-900 mb-3">Social Feed</h3>
               <p className="text-gray-600">Share ideas, post updates, and connect with fellow researchers like Twitter.</p>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-              <div className="text-5xl mb-4">🤝</div>
+              <div className="text-5xl mb-4">??</div>
               <h3 className="text-xl font-bold text-blue-900 mb-3">Employer Access</h3>
               <p className="text-gray-600">Employers discover talent directly through published research.</p>
             </div>
@@ -92,7 +90,8 @@ export default function Home() {
         </div>
       </section>
 
-      <Footer />
+
     </main>
   );
 }
+

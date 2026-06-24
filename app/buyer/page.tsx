@@ -1,7 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
 import Link from "next/link";
 import { FaSearch, FaShoppingCart, FaDownload } from "react-icons/fa";
 
@@ -52,7 +50,7 @@ export default function BuyerPage() {
 
   return (
     <main>
-      <Navbar />
+
       <div className="container mx-auto px-6 py-20">
         <h1 className="text-4xl font-bold text-center text-blue-900 mb-8">Buyer Portal</h1>
         
@@ -96,7 +94,9 @@ export default function BuyerPage() {
           ))}
         </div>
       </div>
-      <Footer />
+
     </main>
   );
 }
+
+
