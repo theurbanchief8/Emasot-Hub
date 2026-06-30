@@ -1,6 +1,7 @@
-﻿import "./globals.css";
+import "./globals.css";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata = {
   title: "EmasotHub - Kenyan Research Platform",
@@ -21,6 +22,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
