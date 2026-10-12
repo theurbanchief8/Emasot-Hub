@@ -104,7 +104,7 @@ export default function Navbar() {
             <Link href="/explore" className="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition">Explore</Link>
             <Link href="/search" className="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition">Search</Link>
             <Link href="/feed" className="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition">Feed</Link>
-            <Link href="/emasot-bot" className="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition">🤖 Bot</Link>
+            <Link href="/emasot-bot" className="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition">Tools</Link>
             <Link href="/research-market" className="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition">Market</Link>
             <Link href="/challenges" className="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition">Challenges</Link>
             <Link href="/leaderboard" className="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition">Leaderboard</Link>
@@ -258,7 +258,6 @@ export default function Navbar() {
                 <Link href="/upload" className="block py-3 px-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" onClick={() => setShowMobileMenu(false)}>Publish Research</Link>
                 <Link href="/messages" className="block py-3 px-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" onClick={() => setShowMobileMenu(false)}>Messages</Link>
                 <Link href="/feed" className="block py-3 px-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" onClick={() => setShowMobileMenu(false)}>Feed</Link>
-                <Link href="/emasot-bot" className="block py-3 px-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" onClick={() => setShowMobileMenu(false)}>🤖 Emasot Bot</Link>
                 <Link href="/challenges" className="block py-3 px-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" onClick={() => setShowMobileMenu(false)}>Challenges</Link>
                 <Link href="/leaderboard" className="block py-3 px-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" onClick={() => setShowMobileMenu(false)}>Leaderboard</Link>
                 {isCEO && (
@@ -273,7 +272,6 @@ export default function Navbar() {
                 <Link href="/" className="block py-3 px-3 text-gray-700 dark:text-gray-300 rounded-lg" onClick={() => setShowMobileMenu(false)}>Home</Link>
                 <Link href="/explore" className="block py-3 px-3 text-gray-700 dark:text-gray-300 rounded-lg" onClick={() => setShowMobileMenu(false)}>Explore</Link>
                 <Link href="/feed" className="block py-3 px-3 text-gray-700 dark:text-gray-300 rounded-lg" onClick={() => setShowMobileMenu(false)}>Feed</Link>
-                <Link href="/emasot-bot" className="block py-3 px-3 text-gray-700 dark:text-gray-300 rounded-lg" onClick={() => setShowMobileMenu(false)}>🤖 Emasot Bot</Link>
                 <Link href="/research-market" className="block py-3 px-3 text-gray-700 dark:text-gray-300 rounded-lg" onClick={() => setShowMobileMenu(false)}>Market</Link>
                 <Link href="/challenges" className="block py-3 px-3 text-gray-700 dark:text-gray-300 rounded-lg" onClick={() => setShowMobileMenu(false)}>Challenges</Link>
                 <Link href="/leaderboard" className="block py-3 px-3 text-gray-700 dark:text-gray-300 rounded-lg" onClick={() => setShowMobileMenu(false)}>Leaderboard</Link>

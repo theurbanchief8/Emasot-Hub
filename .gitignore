@@ -8,3 +8,6 @@
 .env.local
 .env
 .env*.local
+
+*.bak
+*.bak2

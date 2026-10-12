@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaHome, FaSearch, FaRobot, FaShoppingCart, FaUser } from "react-icons/fa";
@@ -23,7 +23,7 @@ export default function MobileNav() {
         </Link>
         <Link href="/emasot-bot" className={`flex flex-col items-center gap-1 p-2 ${isActive("/emasot-bot")}`}>
           <FaRobot size={20} />
-          <span className="text-xs">Bot</span>
+          <span className="text-xs">Tools</span>
         </Link>
         <Link href="/research-market" className={`flex flex-col items-center gap-1 p-2 ${isActive("/research-market")}`}>
           <FaShoppingCart size={20} />
