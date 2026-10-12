@@ -144,7 +144,7 @@ export default function ProfilePage() {
           bio: editForm.bio,
           institution: editForm.institution,
           collaboration_status: collaborationStatus,
-          interests: editForm.interests?.split(",").map((i: string) => i.trim()) || []
+          interests: Array.isArray(editForm.interests) ? editForm.interests : typeof editForm.interests === "string" ? editForm.interests.split(",").map((i: string) => i.trim()).filter(Boolean) : []
         })
         .eq("id", user.id);
 
