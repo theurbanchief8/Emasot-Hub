@@ -1,9 +1,9 @@
 ﻿/** @type {import('next').NextConfig} */
 const nextConfig = {
-  allowedDevOrigins: ['192.168.11.99', 'localhost', '*.local'],
+  allowedDevOrigins: ['192.168.1.129', 'localhost', '*.local'],
   typescript: {
     ignoreBuildErrors: true,
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

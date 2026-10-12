@@ -4,3 +4,7 @@
 .DS_Store
 *.log
 .verced
+
+.env.local
+.env
+.env*.local

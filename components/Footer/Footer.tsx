@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { FaFacebook, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
@@ -30,7 +30,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-blue-800 mt-8 pt-8 text-center text-sm text-gray-400">
-          <p>© 2025 EmasotHub - Empowering Kenyan Research</p>
+          <p>© 2026 EmasotHub - Empowering Kenyan Research</p>
         </div>
       </div>
     </footer>
