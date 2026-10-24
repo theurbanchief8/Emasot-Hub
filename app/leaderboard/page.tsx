@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect } from "react";
 import { FaTrophy, FaStar, FaDownload, FaEye, FaCertificate, FaChartLine } from "react-icons/fa";
 
@@ -34,23 +34,22 @@ export default function Leaderboard() {
   };
 
   return (
-    <main>
-
+    <main className="bg-slate-50 dark:bg-gray-900 min-h-screen">
       <div className="container mx-auto px-6 py-20">
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-900 to-amber-500 bg-clip-text text-transparent mb-4">Research Leaderboard</h1>
+          <h1 className="text-5xl font-bold text-blue-900 dark:text-amber-500 mb-4">Research Leaderboard</h1>
           <p className="text-xl text-gray-600 dark:text-gray-400">Top researchers changing the world through innovation</p>
         </div>
 
         {/* Tabs */}
         <div className="flex justify-center gap-4 mb-8">
-          <button onClick={() => setActiveTab("earnings")} className={`px-6 py-2 rounded-full font-semibold transition ${activeTab === "earnings" ? "bg-blue-900 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"}`}>
+          <button onClick={() => setActiveTab("earnings")} className={`px-6 py-2 rounded-full font-semibold transition ${activeTab === "earnings" ? "bg-blue-900 text-white" : "bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-300 border border-gray-200 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-600"}`}>
             💰 Top Earners
           </button>
-          <button onClick={() => setActiveTab("downloads")} className={`px-6 py-2 rounded-full font-semibold transition ${activeTab === "downloads" ? "bg-blue-900 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"}`}>
+          <button onClick={() => setActiveTab("downloads")} className={`px-6 py-2 rounded-full font-semibold transition ${activeTab === "downloads" ? "bg-blue-900 text-white" : "bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-300 border border-gray-200 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-600"}`}>
             📥 Most Downloaded
           </button>
-          <button onClick={() => setActiveTab("impactScore")} className={`px-6 py-2 rounded-full font-semibold transition ${activeTab === "impactScore" ? "bg-blue-900 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"}`}>
+          <button onClick={() => setActiveTab("impactScore")} className={`px-6 py-2 rounded-full font-semibold transition ${activeTab === "impactScore" ? "bg-blue-900 text-white" : "bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-300 border border-gray-200 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-600"}`}>
             📊 Impact Score
           </button>
         </div>
@@ -59,7 +58,7 @@ export default function Leaderboard() {
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gradient-to-r from-blue-900 to-amber-500 text-white">
+              <thead className="bg-blue-900 text-white">
                 <tr>
                   <th className="p-4 text-left">Rank</th>
                   <th className="p-4 text-left">Researcher</th>
@@ -88,11 +87,11 @@ export default function Leaderboard() {
         </div>
 
         {/* Achievements Section */}
-        <div className="mt-12 bg-gradient-to-r from-blue-50 to-amber-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8">
-          <h3 className="text-2xl font-bold text-blue-900 dark:text-white mb-6 text-center">🏆 Achievement Badges</h3>
+        <div className="mt-12 bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-700">
+          <h3 className="text-2xl font-bold text-blue-900 dark:text-amber-500 mb-6 text-center">🏆 Achievement Badges</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="text-center p-4">
-              <div className="text-4xl mb-2">🏅</div>
+              <div className="text-4xl mb-2">🥇</div>
               <p className="font-semibold dark:text-white">Top Researcher</p>
               <p className="text-xs text-gray-600 dark:text-gray-400">Top 10 overall</p>
             </div>
@@ -109,13 +108,14 @@ export default function Leaderboard() {
             <div className="text-center p-4">
               <div className="text-4xl mb-2">🤝</div>
               <p className="font-semibold dark:text-white">Collaborator</p>
-              <p className="text-xs text-gray-600 dark:text-gray-400">Top collaborator</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">5+ joint projects</p>
             </div>
           </div>
         </div>
       </div>
-
     </main>
   );
 }
+
+
 

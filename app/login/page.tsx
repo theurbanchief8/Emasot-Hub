@@ -210,7 +210,7 @@ export default function LoginPage() {
                   className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-gray-500 dark:text-gray-400 hover:text-amber-500 z-10"
                   aria-label="Toggle password visibility"
                 >
-                  {showPassword ? "👁️" : "👁️‍🗨️"}
+                  {showPassword ? "👁️" : "👁️"}
                 </button>
               </div>
             </div>
