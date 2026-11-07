@@ -1,6 +1,6 @@
 ﻿"use client";
 import Link from "next/link";
-import { FaMagic, FaBook, FaAlignLeft, FaChalkboardTeacher, FaUserShield, FaSearchPlus, FaRobot, FaArrowRight } from "react-icons/fa";
+import { FaMagic, FaBook, FaAlignLeft, FaChalkboardTeacher, FaUserShield, FaSearchPlus, FaRobot, FaArrowRight, FaFileMedical } from "react-icons/fa";
 
 export default function EmasotBotPage() {
   const tools = [
@@ -12,39 +12,46 @@ export default function EmasotBotPage() {
       available: true,
     },
     {
+      icon: <FaFileMedical className="text-3xl" />,
+      title: "AI Document Doctor",
+      description: "Upload a full document for Grammarly-style corrections, humanization, and AI detection.",
+      href: "/emasot-bot/doctor",
+      available: true,
+    },
+    {
       icon: <FaBook className="text-3xl" />,
       title: "Citation Generator",
       description: "Get APA, MLA, Chicago, or Harvard citations from a URL, DOI, or title.",
       href: "/emasot-bot/citation",
-      available: false,
+      available: true,
     },
     {
       icon: <FaAlignLeft className="text-3xl" />,
       title: "Structure Aligner",
       description: "Upload a sample format and your research. AI aligns your structure to match.",
       href: "/emasot-bot/align",
-      available: false,
+      available: true,
     },
     {
       icon: <FaChalkboardTeacher className="text-3xl" />,
       title: "Presentation Deck Builder",
       description: "Turn your abstract into a slide-by-slide outline for your defense.",
       href: "/emasot-bot/presentation",
-      available: false,
+      available: true,
     },
     {
       icon: <FaUserShield className="text-3xl" />,
       title: "Peer Reviewer & Editor",
       description: "AI critiques your logic, checks grammar, and suggests corrections.",
       href: "/emasot-bot/reviewer",
-      available: false,
+      available: true,
     },
     {
       icon: <FaSearchPlus className="text-3xl" />,
       title: "Elevator Pitch Generator",
       description: "Paste your abstract and get a 30-second spoken pitch for interviews.",
       href: "/emasot-bot/pitch",
-      available: false,
+      available: true,
     },
   ];
 
@@ -60,7 +67,7 @@ export default function EmasotBotPage() {
             Your Research Toolkit
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Six practical tools to write, structure, cite, and pitch your research.
+            Seven practical tools to write, structure, cite, correct, and pitch your research.
           </p>
         </div>
 
@@ -99,4 +106,3 @@ export default function EmasotBotPage() {
     </main>
   );
 }
-
